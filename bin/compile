@@ -6,11 +6,8 @@ ENV_DIR=$3
 
 API_LIBRARY=`cat $ENV_DIR/API_LIBRARY`
 
-rm "$BUILD_DIR/requirements.txt"
 cp "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
 
 echo "./$API_LIBRARY" >> "$BUILD_DIR/requirements.txt"
 
-cat "$BUILD_DIR/requirements.txt"
-
-echo "Linked $BUILD_DIR/$API_LIBRARY/requirements.txt for use in python app"
+echo "Using $BUILD_DIR/$API_LIBRARY/requirements.txt for requirement of toplevel python app"
