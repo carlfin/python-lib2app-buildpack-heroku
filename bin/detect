@@ -4,6 +4,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-[ ! -f "$ENV_DIR/API_LIBRARY" ] && echo "\$API_LIBRARY config not found" && exit 1
+#[ ! -f "$ENV_DIR/API_LIBRARY" ] && echo "\$API_LIBRARY config not found" && exit 1
 
 echo "lib2app project"
