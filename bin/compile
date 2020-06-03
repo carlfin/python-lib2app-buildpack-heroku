@@ -6,6 +6,8 @@ ENV_DIR=$3
 
 API_LIBRARY=`cat $ENV_DIR/API_LIBRARY`
 
-ln -sf "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
+cp -f "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
+
+echo './mlserving' >> "$BUILD_DIR/requirements.txt"
 
 echo "Linked $BUILD_DIR/$API_LIBRARY/requirements.txt for use in python app"
