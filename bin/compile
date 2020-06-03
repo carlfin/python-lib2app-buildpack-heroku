@@ -9,7 +9,7 @@ API_LIBRARY=`cat $ENV_DIR/API_LIBRARY`
 rm "$BUILD_DIR/requirements.txt"
 cp "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
 
-echo "./$API_LIBRRAY" >> "$BUILD_DIR/requirements.txt"
+echo "./$API_LIBRARY" >> "$BUILD_DIR/requirements.txt"
 
 cat "$BUILD_DIR/requirements.txt"
 
