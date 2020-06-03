@@ -4,6 +4,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-ls -la "$ENV_DIR"
+API_LIBRARY=`cat $ENV_DIR/API_LIBRARY`
 
 ln -sf "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
+
+echo "Linked $BUILD_DIR/$API_LIBRARY/requirements.txt for use in python app"
