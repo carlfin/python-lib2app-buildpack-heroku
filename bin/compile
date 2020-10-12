@@ -20,5 +20,3 @@ for SINGLE_LIB in $API_LIBRARY; do
 done
 
 cat "$BUILD_DIR/requirements.txt.tmp" | sort | uniq > "$BUILD_DIR/requirements.txt"
-
-cat "$BUILD_DIR/requirements.txt"
