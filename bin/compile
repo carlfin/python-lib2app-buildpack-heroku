@@ -4,10 +4,19 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+
+
 API_LIBRARY=`cat $ENV_DIR/API_LIBRARY`
 
-cp "$BUILD_DIR/$API_LIBRARY/requirements.txt" "$BUILD_DIR/requirements.txt"
+touch "$BUILD_DIR/requirements.txt.tmp"
+truncate -s0 "$BUILD_DIR/requirements.txt.tmp"
 
-echo "./$API_LIBRARY" >> "$BUILD_DIR/requirements.txt"
+for SINGLE_LIB in "$API_LIBRARY; do
+  cat "$BUILD_DIR/$SINGLE_LIB/requirements.txt" >> "$BUILD_DIR/requirements.txt.tmp"
 
-echo "Using $BUILD_DIR/$API_LIBRARY/requirements.txt for requirement of toplevel python app"
+  echo "./$API_LIBRARY" >> "$BUILD_DIR/requirements.txt.tmp"
+ 
+  echo "Using $BUILD_DIR/$SINGLE_LIB/requirements.txt for requirement of toplevel python app" 
+done
+
+cat "$BUILD_DIR/requirements.txt.tmp" | sort | uniq > "$BUILD_DIR/requirements.txt"
