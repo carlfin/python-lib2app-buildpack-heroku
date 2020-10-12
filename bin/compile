@@ -14,7 +14,7 @@ truncate -s0 "$BUILD_DIR/requirements.txt.tmp"
 for SINGLE_LIB in $API_LIBRARY; do
   cat "$BUILD_DIR/$SINGLE_LIB/requirements.txt" >> "$BUILD_DIR/requirements.txt.tmp"
 
-  echo "./$API_LIBRARY" >> "$BUILD_DIR/requirements.txt.tmp"
+  echo "./$SINGLE_LIB" >> "$BUILD_DIR/requirements.txt.tmp"
  
   echo "Using $BUILD_DIR/$SINGLE_LIB/requirements.txt for requirement of toplevel python app" 
 done
